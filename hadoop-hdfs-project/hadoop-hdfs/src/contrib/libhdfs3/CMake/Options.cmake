@@ -159,12 +159,22 @@ ELSEIF(MSVC)
     SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
 ENDIF(CMAKE_COMPILER_IS_GNUCXX)
 
-TRY_COMPILE(STRERROR_R_RETURN_INT
-	${CMAKE_BINARY_DIR}
-	${CMAKE_SOURCE_DIR}/CMake/CMakeTestCompileStrerror.cpp
-	OUTPUT_VARIABLE OUTPUT)
-
 MESSAGE(STATUS "Checking whether strerror_r returns an int")
+
+INCLUDE(CheckCSourceCompiles)
+CHECK_C_SOURCE_COMPILES("
+#include <string.h>
+
+#ifdef _WIN32
+#define strerror_r(errnum, buf, buflen) strerror_s((buf), (buflen), (errnum))
+#endif
+
+int main(void) 
+{ 
+    int i = strerror_r(0, 0, 100);
+    return 0; 
+}
+" STRERROR_R_RETURN_INT)
 
 IF(STRERROR_R_RETURN_INT)
 	MESSAGE(STATUS "Checking whether strerror_r returns an int -- yes")

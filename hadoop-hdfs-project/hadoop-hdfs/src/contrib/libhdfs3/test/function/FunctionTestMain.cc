@@ -16,16 +16,12 @@
  * limitations under the License.
  */
 
-#include <string.h>
-#ifdef _WIN32
-#define strerror_r(errnum, buf, buflen) strerror_s((buf), (buflen), (errnum))
-#endif
+#include "gtest/gtest.h"
 
-int main()
-{
-    // We can't test "char *p = strerror_r()" because that only causes a
-    // compiler warning when strerror_r returns an integer.
-    char *buf = 0;
-    int i = strerror_r(0, buf, 100);
-    return i;
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+#ifdef DATA_DIR
+    chdir(DATA_DIR);
+#endif
+    return RUN_ALL_TESTS();
 }

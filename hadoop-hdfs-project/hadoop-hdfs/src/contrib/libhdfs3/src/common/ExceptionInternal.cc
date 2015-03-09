@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "platform.h"
+#include "platform-def.h"
 
 #include "Exception.h"
 #include "ExceptionInternal.h"

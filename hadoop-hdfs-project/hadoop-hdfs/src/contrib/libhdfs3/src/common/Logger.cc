@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#include "platform.h"
+#include "platform-def.h"
 
 #include "Logger.h"
 

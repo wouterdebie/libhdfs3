@@ -19,7 +19,7 @@
 #ifndef _HDFS_LIBHDFS3_COMMON_ATOMIC_H_
 #define _HDFS_LIBHDFS3_COMMON_ATOMIC_H_
 
-#include "platform.h"
+#include "platform-def.h"
 
 #ifdef NEED_BOOST
 

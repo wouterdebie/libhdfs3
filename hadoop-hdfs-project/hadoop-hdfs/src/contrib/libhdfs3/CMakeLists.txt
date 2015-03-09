@@ -22,7 +22,7 @@ PROJECT(libhdfs3 C CXX)
 
 SET(CMAKE_VERBOSE_MAKEFILE ON CACHE STRING "Verbose build." FORCE)
 
-IF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+IF(${PROJECT_SOURCE_DIR} STREQUAL ${PROJECT_BINARY_DIR})
     MESSAGE(FATAL_ERROR "cannot build the project in the source directory! Out-of-source build is enforced!")
 ENDIF()
 
@@ -48,7 +48,7 @@ ADD_SUBDIRECTORY(gmock)
 ADD_SUBDIRECTORY(test)
 
 ADD_CUSTOM_TARGET(doc
-    COMMAND doxygen ${CMAKE_BINARY_DIR}/src/doxyfile
+    COMMAND doxygen ${PROJECT_BINARY_DIR}/src/doxyfile
     WORKING_DIRECTORY ${DOXYFILE_PATH}
     COMMENT "Generate documents..."
 )

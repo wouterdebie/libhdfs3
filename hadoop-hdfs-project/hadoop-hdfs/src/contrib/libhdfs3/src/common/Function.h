@@ -19,7 +19,7 @@
 #ifndef _HDFS_LIBHDFS3_COMMON_FUNCTION_H_
 #define _HDFS_LIBHDFS3_COMMON_FUNCTION_H_
 
-#include "platform.h"
+#include "platform-def.h"
 
 #ifdef NEED_BOOST
 #include <boost/function.hpp>

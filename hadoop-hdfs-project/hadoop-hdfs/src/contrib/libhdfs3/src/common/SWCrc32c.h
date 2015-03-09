@@ -19,8 +19,8 @@
 #ifndef _HDFS_LIBHDFS3_COMMON_SWCRC32C_H_
 #define _HDFS_LIBHDFS3_COMMON_SWCRC32C_H_
 
+#include "platform-def.h"
 #include "Checksum.h"
-#include "platform.h"
 
 #include <stdint.h>
 

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#include "platform.h"
+#include "platform-def.h"
 
 #include <arpa/inet.h>
 #include <cassert>
@@ -39,6 +39,7 @@
 #include "Exception.h"
 #include "ExceptionInternal.h"
 #include "TcpSocket.h"
+
 #include "Syscall.h"
 
 // Linux defines a constant that you can use inside send() to prevent SIGPIPE

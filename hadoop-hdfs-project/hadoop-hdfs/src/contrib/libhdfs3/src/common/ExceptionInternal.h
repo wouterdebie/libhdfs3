@@ -19,7 +19,7 @@
 #ifndef _HDFS_LIBHDFS3_EXCEPTION_EXCEPTIONINTERNAL_H_
 #define _HDFS_LIBHDFS3_EXCEPTION_EXCEPTIONINTERNAL_H_
 
-#include "platform.h"
+#include "platform-def.h"
 
 #include <cassert>
 #include <cstdarg>

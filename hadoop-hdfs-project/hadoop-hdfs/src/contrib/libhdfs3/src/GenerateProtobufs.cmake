@@ -26,7 +26,7 @@ function(COPY_IF_CHANGED TARGET)
     endforeach()
 endfunction(COPY_IF_CHANGED TARGET)
 
-COPY_IF_CHANGED("${CMAKE_BINARY_DIR}/common_pb"
+COPY_IF_CHANGED("${PROJECT_BINARY_DIR}/common_pb"
     ${HADOOP_TOP_DIR}/hadoop-common-project/hadoop-common/src/main/proto/GetUserMappingsProtocol.proto
     ${HADOOP_TOP_DIR}/hadoop-common-project/hadoop-common/src/main/proto/HAServiceProtocol.proto
     ${HADOOP_TOP_DIR}/hadoop-common-project/hadoop-common/src/main/proto/IpcConnectionContext.proto
@@ -40,7 +40,7 @@ COPY_IF_CHANGED("${CMAKE_BINARY_DIR}/common_pb"
     ${HADOOP_TOP_DIR}/hadoop-common-project/hadoop-common/src/main/proto/ZKFCProtocol.proto
 )
 
-COPY_IF_CHANGED("${CMAKE_BINARY_DIR}/hdfs_pb"
+COPY_IF_CHANGED("${PROJECT_BINARY_DIR}/hdfs_pb"
     #${HADOOP_TOP_DIR}/hadoop-hdfs-project/hadoop-hdfs/src/main/proto/DatanodeProtocol.proto
     ${HADOOP_TOP_DIR}/hadoop-hdfs-project/hadoop-hdfs/src/main/proto/HAZKInfo.proto
     ${HADOOP_TOP_DIR}/hadoop-hdfs-project/hadoop-hdfs/src/main/proto/ClientDatanodeProtocol.proto
@@ -58,9 +58,5 @@ COPY_IF_CHANGED("${CMAKE_BINARY_DIR}/hdfs_pb"
     ${HADOOP_TOP_DIR}/hadoop-hdfs-project/hadoop-hdfs/src/main/proto/inotify.proto
 )
 
-AUTO_SOURCES(PB_SOURCES "*.proto" "RECURSE" "${CMAKE_BINARY_DIR}")
-MESSAGE("PB_SOURCES = ${PB_SOURCES}")
-
-PROTOBUF_GENERATE_CPP(LIBHDFS3_PROTO_SOURCES LIBHDFS3_PROTO_HEADERS "${PB_SOURCES}")
-set(${LIBHDFS3_PROTO_SOURCES} ${LIBHDFS3_PROTO_HEADERS} PARENT_SCOPE)
-MESSAGE("LIBHDFS3_PROTO_SOURCES = ${LIBHDFS3_PROTO_SOURCES}")
+AUTO_SOURCES(libhdfs3_PROTO_FILES "*.proto" "RECURSE" "${PROJECT_BINARY_DIR}")
+SET(libhdfs3_PROTO_FILES ${libhdfs3_PROTO_FILES} PARENT_SCOPE)

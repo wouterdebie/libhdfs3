@@ -235,3 +235,24 @@ IF(REQUIRE_LIBWEBHDFS)
     add_subdirectory(contrib/libwebhdfs)
 ENDIF(REQUIRE_LIBWEBHDFS)
 add_subdirectory(main/native/fuse-dfs)
+
+IF(REQUIRE_LIBHDFS3)
+    add_subdirectory(contrib/libhdfs3)
+    add_custom_target(install-libhdfs3 ALL
+        COMMAND make install
+        DEPENDS libhdfs3-static libhdfs3-shared
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/contrib/libhdfs3
+        COMMENT "installing libhdfs3..."
+    )
+    
+    add_custom_target(test-libhdfs3
+        COMMAND make functiontest
+        DEPENDS native_mini_dfs
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/contrib/libhdfs3/test
+        COMMENT "testing libhdfs3..."
+    )
+ELSE(REQUIRE_LIBHDFS3)
+    add_custom_target(test-libhdfs3
+        COMMENT "skip testing libhdfs3"
+    )
+ENDIF(REQUIRE_LIBHDFS3)
