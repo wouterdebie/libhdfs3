@@ -3,6 +3,9 @@
 #include "client/hdfs.h"
 %}
 
+%include "typemaps.i"
+%apply int *OUTPUT { int * numEntries };
+
 %typemap(in) tPort {
   $1 = PyInt_AsLong($input);
 }
@@ -20,3 +23,6 @@
 }
 
 %include "client/hdfs.h"
+
+%include <carrays.i>
+%array_class(hdfsFileInfo, hdfsFileInfoArray);
