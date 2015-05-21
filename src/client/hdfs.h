@@ -25,6 +25,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 #ifndef _HDFS_LIBHDFS3_CLIENT_HDFS_H_
 #define _HDFS_LIBHDFS3_CLIENT_HDFS_H_
 
@@ -410,25 +411,25 @@ int hdfsSync(hdfsFS fs, hdfsFile file);
  */
 int hdfsAvailable(hdfsFS fs, hdfsFile file);
 
-/**
- * hdfsCopy - Copy file from one filesystem to another.
- * @param srcFS The handle to source filesystem.
- * @param src The path of source file.
- * @param dstFS The handle to destination filesystem.
- * @param dst The path of destination file.
- * @return Returns 0 on success, -1 on error.
- */
-int hdfsCopy(hdfsFS srcFS, const char * src, hdfsFS dstFS, const char * dst);
+// /**
+//  * hdfsCopy - Copy file from one filesystem to another.
+//  * @param srcFS The handle to source filesystem.
+//  * @param src The path of source file.
+//  * @param dstFS The handle to destination filesystem.
+//  * @param dst The path of destination file.
+//  * @return Returns 0 on success, -1 on error.
+//  */
+// int hdfsCopy(hdfsFS srcFS, const char * src, hdfsFS dstFS, const char * dst);
 
-/**
- * hdfsMove - Move file from one filesystem to another.
- * @param srcFS The handle to source filesystem.
- * @param src The path of source file.
- * @param dstFS The handle to destination filesystem.
- * @param dst The path of destination file.
- * @return Returns 0 on success, -1 on error.
- */
-int hdfsMove(hdfsFS srcFS, const char * src, hdfsFS dstFS, const char * dst);
+// /**
+//  * hdfsMove - Move file from one filesystem to another.
+//  * @param srcFS The handle to source filesystem.
+//  * @param src The path of source file.
+//  * @param dstFS The handle to destination filesystem.
+//  * @param dst The path of destination file.
+//  * @return Returns 0 on success, -1 on error.
+//  */
+// int hdfsMove(hdfsFS srcFS, const char * src, hdfsFS dstFS, const char * dst);
 
 /**
  * hdfsDelete - Delete file.

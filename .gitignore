@@ -14,3 +14,4 @@ test/data/securetest.xml
 .pydevproject
 
 *.css
+src/client/hdfs.py
